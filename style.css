@@ -1,0 +1,37 @@
+#sidebar {
+  float: left;
+  color: white;
+  background-color: #1766A6;
+}
+
+
+a {
+  text-decoration: none;
+  color: #009688;
+  font-family: monospace;
+  text-shadow: blue 0px 0px 8px;
+}
+
+.meta {
+  text-align: center;
+  font-size: 16px;
+}
+
+.nav {
+  list-style-type: none;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  margin-right: 40px;
+}
+.meta:hover,.nav:hover {
+
+    transition: all .25s ease-out;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    position: relative;
+    color: transparent;
+    opacity: .2;
+    
+}
