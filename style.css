@@ -2,8 +2,14 @@
   float: left;
   color: white;
   background-color: #1766A6;
+  box-shadow: 0px red;
+  transition-property: box-shadow;
+  transition-duration: 1s;
 }
 
+#sidebar:hover {
+  box-shadow: 0px 0px 20px grey;
+}
 
 a {
   text-decoration: none;
