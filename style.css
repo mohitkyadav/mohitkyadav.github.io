@@ -1,21 +1,21 @@
 #sidebar {
   float: left;
   color: white;
-  background-color: #1766A6;
+  background-color: #e5e5e5;
   box-shadow: 0px red;
   transition-property: box-shadow;
   transition-duration: 1s;
 }
 
 #sidebar:hover {
-  box-shadow: 0px 0px 20px grey;
+  box-shadow: 0px 0px 20px #cccccc;
 }
 
 a {
   text-decoration: none;
-  color: #009688;
-  font-family: monospace;
-  text-shadow: blue 0px 0px 8px;
+  color: #0d47a1;
+  font-family: 'Asap', sans-serif;
+  text-shadow: #009688 0px 0px 3px;
 }
 
 .meta {
@@ -32,7 +32,7 @@ a {
 }
 .meta:hover,.nav:hover {
 
-    transition: all .25s ease-out;
+    transition: all .50s ease-out;
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
