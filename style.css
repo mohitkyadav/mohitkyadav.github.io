@@ -3,6 +3,7 @@
   color: white;
   background-color: #e5e5e5;
   box-shadow: 0px red;
+  border-radius: 1%;
   transition-property: box-shadow;
   transition-duration: 1s;
 }
@@ -18,7 +19,7 @@ a {
   text-shadow: #009688 0px 0px 3px;
 }
 
-.meta {
+.meta {  
   text-align: center;
   font-size: 16px;
 }
