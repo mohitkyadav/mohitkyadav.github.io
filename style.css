@@ -2,14 +2,14 @@
   float: left;
   color: white;
   background-color: #e5e5e5;
-  box-shadow: 0px red;
+  box-shadow: 0px 0px 20px #cccccc;
   border-radius: 1%;
-  transition-property: box-shadow;
-  transition-duration: 1s;
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 #sidebar:hover {
-  box-shadow: 0px 0px 20px #cccccc;
+  transform: scale(0.988,0.988);
+  box-shadow: 0px 0px 4px #cccccc;
 }
 
 a {
