@@ -1,16 +1,33 @@
-#sidebar {
+.sidebar {
   float: left;
   color: white;
+  margin-left: 8px;
   background-color: #e5e5e5;
-  box-shadow: 0px 0px 20px #cccccc;
+  box-shadow: 0px 0px 20px #ddcccc;
   border-radius: 1%;
   transition: transform 0.1s, box-shadow 0.1s;
 }
 
-#sidebar:hover {
+.sidebar:hover {
   transform: scale(0.988,0.988);
   box-shadow: 0px 0px 4px #cccccc;
 }
+
+#main {
+  float: left;
+  color: purple;
+  margin-left: 8px;
+  background-color: #212121;
+  box-shadow: 0px 0px 20px #ddcccc;
+  border-radius: 1%;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#main:hover {
+  transform: scale(0.988,0.988);
+  box-shadow: 0px 0px 4px #cccccc;
+}
+
 
 a {
   text-decoration: none;
@@ -40,5 +57,5 @@ a {
     position: relative;
     color: transparent;
     opacity: .2;
-    
+
 }
