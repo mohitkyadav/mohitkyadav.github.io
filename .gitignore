@@ -3,6 +3,7 @@
 .vscode
 
 # dependencies
+/mky
 /node_modules
 /.pnp
 .pnp.js

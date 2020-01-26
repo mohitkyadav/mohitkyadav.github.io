@@ -1,0 +1,19 @@
+@import '../../sass/abstracts.scss';
+
+.hero {
+  @include rowFlexCenter;
+  @include smoothBorderCorner;
+
+  font-size: $font-size-xl;
+  padding: 5rem;
+  width: 90vw;
+  color: $color-white;
+  background-color: $color-primary-op-50;
+}
+
+@media (max-width: $bp-large) {
+  .hero {
+    padding: 2rem 1rem;
+    color: $color-black;
+  }
+}
