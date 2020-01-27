@@ -1,0 +1,9 @@
+@import '../../sass/abstracts.scss';
+
+.navbar {
+  display: flex;
+
+  &__nav {
+    display: flex;
+  }
+}
