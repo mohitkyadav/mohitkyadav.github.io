@@ -15,9 +15,9 @@ const HeroHeader = () => (
         {' '}
         <span role="img">❤</span>
         {' '}
-        anime, CS and chai ☕.
+        anime, CS, chai ☕and js + py.
         <br />
-        And yeah I also love js + py.
+        Check out gyan section to see my posts.
       </div>
       <div className="hero__content__nav">
         <NavBar />
