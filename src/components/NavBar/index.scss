@@ -6,6 +6,11 @@
   &__nav {
     display: flex;
     justify-content: space-between;
-    width: 25rem;
+
+    .btn {
+      margin-right: 2rem;
+      width: 6rem;
+      font-size: 2rem;
+    }
   }
 }

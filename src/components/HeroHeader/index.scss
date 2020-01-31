@@ -6,24 +6,29 @@
 
   position: relative;
   font-size: $font-size-xl;
-  width: 90vw;
-  height: 90vh;
-  margin-top: 2rem;
-  color: $color-black;
-  background-color: $color-primary-op-50;
+  width: 100vw;
+  height: 100vh;
+  color: $color-white;
 
   &__bg {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    @include colFlexCenter;
+    width: 30rem;
+    margin-right: 5rem;
+
+    &__img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+
+      box-shadow: 0 0 20px 0 $color-black-op-80;
+    }
   }
 
   &__content {
-    position: absolute;
+    flex: 1;
     height: 100%;
-    width: 100%;
-    top: 0;
-    background: linear-gradient(to right, rgba(72, 138, 94, 0.8) 0%, rgba(206, 250, 131, 0.2) 100%);
+    background: linear-gradient(to right, rgba(20, 250, 230, 0.3) 0%, rgba(230, 84%, 63%, 0) 100%);
 
     &__chips, &__name, &__description {
       margin-top: 1rem;
@@ -35,7 +40,8 @@
     }
 
     &__name {
-      font-size: 8rem;
+      font-size: 15rem;
+      opacity: 0.4;
       font-weight: 800;
     }
 
@@ -54,6 +60,6 @@
 
 @media (max-width: $bp-large) {
   .hero {
-    color: $color-white;
+    color: $color-black;
   }
 }

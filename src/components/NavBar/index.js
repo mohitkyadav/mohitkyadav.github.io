@@ -8,8 +8,9 @@ const NavBar = () => (
   <div className="navbar">
     <nav className="navbar__nav">
       <Button text="Overview" />
-      <Button text="Overview" />
-      <Button text="Overview" />
+      <Button text="Highlights" />
+      <Button text="Random" />
+      <Button text="Gyan" />
     </nav>
   </div>
 )
