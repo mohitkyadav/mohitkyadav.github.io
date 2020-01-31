@@ -7,9 +7,9 @@ import './index.scss'
 const NavBar = () => (
   <div className="navbar">
     <nav className="navbar__nav">
-      <Button />
-      <Button />
-      <Button />
+      <Button text="Overview" />
+      <Button text="Overview" />
+      <Button text="Overview" />
     </nav>
   </div>
 )

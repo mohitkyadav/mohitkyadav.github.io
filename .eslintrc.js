@@ -26,6 +26,7 @@ module.exports = {
     "react/jsx-indent": [2, 2],
     "arrow-parens": [2, "always"],
     "react/jsx-max-props-per-line": [1, { "when": "always" }],
+    "react/prop-types": 0,
     "jsx-quotes": [2, "prefer-double"],
     "indent": [2, 2],
     "quotes": [2, "single", "avoid-escape"],
