@@ -11,7 +11,7 @@ const HeroHeader = () => (
         Mohit K. Yadav
       </div>
       <div className="hero__content__description">
-        I
+        Hi there tourist, I
         {' '}
         <span role="img">❤</span>
         {' '}
