@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+import ErrorPage from '../ErrorPage'
 import Overview from '../Overview'
 
 export const routeLinks = [
@@ -44,7 +45,7 @@ const Routes = ({ location }) => (
           />
           <Route
             path="*"
-            component={() => '404 not found anything boya!'}
+            component={ErrorPage}
           />
         </Switch>
       </CSSTransition>

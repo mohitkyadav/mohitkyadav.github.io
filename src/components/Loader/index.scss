@@ -1,0 +1,40 @@
+@import '../../sass/abstracts.scss';
+
+.loader {
+  @include colFlexCenter;
+
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: transparent;
+  color: $color-white;
+  transition: all 0.3s ease-out;
+  z-index: 2;
+
+  &__bar {
+    height: 4rem;
+    width: 70%;
+    background-color: $color-white-op-50;
+    z-index: 3;
+    box-shadow: 0 0 20px 0 $color-black-op-80;
+    animation: scaleDown 3s forwards;
+
+    &__progress {
+      height: 100%;
+      background-color: $color-primary;
+      animation: loadingIncrease 4s forwards;
+      transition: all 0.3s ease-out;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    transition: all 0.3s ease-out;
+  }
+}
