@@ -9,6 +9,8 @@
   width: 100vw;
   height: 100vh;
   color: $color-white;
+  overflow: hidden;
+  background: linear-gradient(to right, rgba(20, 250, 230, 0.3) 0%, rgba(230, 84%, 63%, 0) 100%);
 
   &__bg {
     @include colFlexCenter;
@@ -27,28 +29,8 @@
 
   &__content {
     flex: 1;
+    position: relative;
     height: 100%;
-    background: linear-gradient(to right, rgba(20, 250, 230, 0.3) 0%, rgba(230, 84%, 63%, 0) 100%);
-
-    &__chips, &__name, &__description {
-      margin-top: 1rem;
-      margin-left: 5rem;
-    }
-
-    &__description {
-      font-size: $font-size-xl;
-    }
-
-    &__name {
-      font-size: 15rem;
-      opacity: 0.4;
-      font-weight: 800;
-    }
-
-    &__chips {
-      font-size: $font-size-large;
-      margin-top: 8rem;
-    }
 
     &__nav {
       position: absolute;

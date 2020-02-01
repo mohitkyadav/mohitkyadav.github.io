@@ -6,6 +6,7 @@ const Button = (props) => (
   <button
     className="btn"
     type="button"
+    {...props}
   >
     <div className="btn__content">
       <div className="btn__content__text">

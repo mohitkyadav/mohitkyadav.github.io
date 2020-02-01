@@ -1,0 +1,33 @@
+@import '../../sass/abstracts.scss';
+
+.overview {
+  flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__chips, &__name, &__description {
+    margin-top: 1rem;
+    margin-left: 5rem;
+  }
+
+  &__description {
+    font-size: $font-size-xl;
+  }
+
+  &__name {
+    font-size: 15rem;
+    opacity: 0.4;
+    font-weight: 800;
+  }
+
+  &__chips {
+    font-size: $font-size-large;
+    margin-top: 8rem;
+  }
+}
