@@ -26,7 +26,7 @@ class HeroHeader extends React.Component {
     return (
       <div className="hero">
         <BrowserRouter>
-          <Route path="*">
+          <Route path={`${process.env.PUBLIC_URL}/`}>
             <div className="hero__content">
               <Routes />
               {!this.state.hideLoader && (
