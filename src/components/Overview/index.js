@@ -14,10 +14,16 @@ const Overview = () => (
       {' '}
       anime, CS, chai ☕and js + py.
       <br />
-      Check out gyan section to see my posts.
-    </div>
-    <div className="overview__chips">
-      chip1, chip2
+      Check out highlights section to see my projects.
+      <br />
+      <br />
+      I usually do backend and frontend. I also do mobile and Windows.
+      <br />
+      Currently I am working at
+      {' '}
+      <strong>Blindside HB GmbH</strong>
+      {' '}
+      as a Full Stack Engineering.
     </div>
   </div>
 )

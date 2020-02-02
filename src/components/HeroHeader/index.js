@@ -18,8 +18,8 @@ class HeroHeader extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => { this.setState({ hideLoader: true }) }, 6000)
-    setTimeout(() => { this.setState({ animateOutLoader: true }) }, 5000)
+    setTimeout(() => { this.setState({ hideLoader: true }) }, 5000)
+    setTimeout(() => { this.setState({ animateOutLoader: true }) }, 4000)
   }
 
   render() {

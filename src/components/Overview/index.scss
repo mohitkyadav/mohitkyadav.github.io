@@ -25,9 +25,29 @@
     opacity: 0.4;
     font-weight: 800;
   }
+}
 
-  &__chips {
-    font-size: $font-size-large;
-    margin-top: 8rem;
+
+@media (max-width: $bp-xl) {
+  .overview {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__chips, &__name, &__description {
+      margin-top: 1rem;
+      margin-left: 0;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    &__name {
+      font-size: $font-size-xxl;
+    }
+
+    &__description {
+      font-size: $font-size-large;
+    }
   }
 }

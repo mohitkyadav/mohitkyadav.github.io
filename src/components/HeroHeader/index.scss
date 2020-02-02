@@ -39,8 +39,24 @@
   }
 }
 
-@media (max-width: $bp-large) {
+@media (max-width: $bp-xl) {
   .hero {
-    color: $color-black;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+
+    &__content {
+      width: 100%;
+      position: relative;
+    }
+
+    &__bg {
+      width: 20rem;
+      margin-right: 0;
+      margin-top: 2rem;
+    }
   }
 }
