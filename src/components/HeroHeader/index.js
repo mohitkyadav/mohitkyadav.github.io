@@ -25,7 +25,7 @@ class HeroHeader extends React.Component {
   render() {
     return (
       <div className="hero">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Route path="*">
             <div className="hero__content">
               <Routes />

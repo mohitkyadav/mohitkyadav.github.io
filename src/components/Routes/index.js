@@ -25,26 +25,26 @@ const Routes = ({ location }) => (
         <Switch location={location}>
           <Route
             exact
-            path={`${process.env.PUBLIC_URL}/`}
+            path="/"
             component={Overview}
           />
           <Route
             exact
-            path={`${process.env.PUBLIC_URL}/highlights`}
+            path="/highlights"
             component={Overview}
           />
           <Route
             exact
-            path={`${process.env.PUBLIC_URL}/random`}
+            path="/random"
             component={Overview}
           />
           <Route
             exact
-            path={`${process.env.PUBLIC_URL}/gyan`}
+            path="/gyan"
             component={Overview}
           />
           <Route
-            path={`${process.env.PUBLIC_URL}/*`}
+            path="*"
             component={ErrorPage}
           />
         </Switch>
