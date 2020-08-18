@@ -12,6 +12,7 @@ const NavBar = ({ links }) => (
         <Link
           className="navbar__nav__a"
           to={link.href}
+          key={link.href}
         >
           <Button text={link.text} />
         </Link>

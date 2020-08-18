@@ -23,7 +23,7 @@ const Overview = () => (
       {' '}
       <strong>Blindside HB GmbH</strong>
       {' '}
-      as a Full Stack Engineering.
+      as a Full Stack Engineer.
     </div>
   </div>
 )
