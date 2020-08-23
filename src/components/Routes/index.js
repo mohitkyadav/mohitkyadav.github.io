@@ -7,10 +7,10 @@ import ErrorPage from '../ErrorPage'
 import Overview from '../Overview'
 
 export const routeLinks = [
-  { text: 'Overview', href: '/' },
-  { text: 'Highlights', href: '/highlights' },
-  { text: 'Random', href: '/random' },
-  { text: 'Gyan', href: '/gyan' },
+  { text: 'Overview', href: '/', component: Overview },
+  { text: 'Highlights', href: '/highlights', component: Overview },
+  { text: 'Random', href: '/random', component: Overview },
+  { text: 'Gyan', href: '/gyan', component: Overview },
 ]
 
 const Routes = ({ location }) => (
@@ -23,26 +23,13 @@ const Routes = ({ location }) => (
         classNames="slide-up"
       >
         <Switch location={location}>
-          <Route
-            exact
-            path="/"
-            component={Overview}
-          />
-          <Route
-            exact
-            path="/highlights"
-            component={Overview}
-          />
-          <Route
-            exact
-            path="/random"
-            component={Overview}
-          />
-          <Route
-            exact
-            path="/gyan"
-            component={Overview}
-          />
+          {routeLinks.map((route) => (
+            <Route
+              exact
+              path={route.href}
+              component={route.component}
+            />
+          ))}
           <Route
             path="*"
             component={ErrorPage}
