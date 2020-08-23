@@ -17,11 +17,20 @@ const Overview = () => (
       Check out highlights section to see my projects.
       <br />
       <br />
-      I usually do backend and frontend. I also do mobile and Windows.
+      I do frontend, backend, mobile and Windows.
       <br />
       Currently I am working at
       {' '}
-      <strong>Blindside HB GmbH</strong>
+      <strong>
+        <a
+          className="overview__description__job-link"
+          href="https://www.blindside.pro/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Blindside HB GmbH
+        </a>
+      </strong>
       {' '}
       as a Full Stack Engineer.
     </div>
