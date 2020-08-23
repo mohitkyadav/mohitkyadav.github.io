@@ -1,0 +1,15 @@
+@import '../../sass/abstracts.scss';
+
+.project-card {
+
+}
+
+
+@media (max-width: $bp-xl) {
+  .project-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
