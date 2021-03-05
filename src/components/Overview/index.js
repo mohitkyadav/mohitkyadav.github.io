@@ -8,16 +8,12 @@ const Overview = () => (
       Mohit K. Yadav
     </div>
     <div className="overview__description">
-      Hi there tourist, I
-      {' '}
-      <span role="img">❤</span>
-      {' '}
-      anime, CS, chai ☕and js + py.
+      Hi there tourist,
+      I do frontend, backend, mobile (flutter) and Windows.
+      I love anime, CS, chai and js + py.
       <br />
       Check out highlights section to see my projects.
       <br />
-      <br />
-      I do frontend, backend, mobile and Windows.
       <br />
       Currently I am working at
       {' '}
