@@ -22,7 +22,7 @@ const HeroHeader = () => (
       <img
         className="hero__bg__img"
         alt="Mohit K.Yadav"
-        src="static/img/hero.jpg"
+        src="https://github.com/mohitkyadav.png"
       />
     </div>
   </div>
