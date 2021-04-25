@@ -3,13 +3,11 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import ErrorPage from '../ErrorPage'
-import Overview from '../Overview'
-import Highlights from '../Highlights'
+import { HomePage, ResumePage, ErrorPage } from '../../Pages'
 
 export const routeLinks = [
-  { text: 'Overview', href: '/', component: Overview },
-  { text: 'Highlights', href: '/highlights', component: Highlights },
+  { text: 'me', href: '/', component: HomePage },
+  { text: 'resume', href: '/resume', component: ResumePage },
 ]
 
 const Routes = ({ location }) => (

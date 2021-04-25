@@ -2,8 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import Routes, { routeLinks } from '../Routes'
-import NavBar from '../NavBar'
+import Routes from '../Routes'
 
 import './index.scss'
 
@@ -13,9 +12,6 @@ const Root = () => (
       <Route path="*">
         <div className="root__content">
           <Routes />
-          <div className="root__content__nav">
-            <NavBar links={routeLinks} />
-          </div>
         </div>
       </Route>
     </BrowserRouter>
