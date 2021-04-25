@@ -10,8 +10,6 @@ import Highlights from '../Highlights'
 export const routeLinks = [
   { text: 'Overview', href: '/', component: Overview },
   { text: 'Highlights', href: '/highlights', component: Highlights },
-  { text: 'Random', href: '/random', component: Overview },
-  { text: 'Gyan', href: '/gyan', component: Overview },
 ]
 
 const Routes = ({ location }) => (
