@@ -18,13 +18,6 @@ const HeroHeader = () => (
         </div>
       </Route>
     </BrowserRouter>
-    <div className="hero__bg">
-      <img
-        className="hero__bg__img"
-        alt="Mohit K.Yadav"
-        src="https://github.com/mohitkyadav.png"
-      />
-    </div>
   </div>
 )
 
