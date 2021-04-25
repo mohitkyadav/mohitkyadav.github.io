@@ -2,7 +2,7 @@ import React from 'react'
 
 const ResumePage = () => (
   <div className="resume-page">
-      ResumePage
+    ResumePage
   </div>
 )
 
