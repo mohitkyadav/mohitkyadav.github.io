@@ -1,10 +1,8 @@
 import React from 'react'
 
-import './index.scss'
-
 const HomePage = () => (
   <div className="home-page">
-      homepage
+    homepage
   </div>
 )
 
