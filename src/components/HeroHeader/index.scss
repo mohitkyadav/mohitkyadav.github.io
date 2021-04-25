@@ -5,7 +5,7 @@
   @include smoothBorderCorner;
 
   position: relative;
-  font-size: $font-size-xl;
+  font-size: 3.2rem;
   width: 100vw;
   height: 100vh;
   color: $font-color;
@@ -21,22 +21,6 @@
       position: absolute;
       bottom: 2rem;
       margin-left: 5rem;
-    }
-  }
-}
-
-@media (max-width: $bp-xl) {
-  .hero {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    overflow: auto;
-
-    &__content {
-      width: 100%;
-      position: relative;
     }
   }
 }

@@ -15,7 +15,6 @@
   align-items: center;
 }
 
-
 @mixin colFlexCenter {
   @include colFlex;
 
@@ -24,5 +23,5 @@
 }
 
 @mixin smoothBorderCorner {
-  border-radius: $border-radius;
+  border-radius: 5px;
 }
