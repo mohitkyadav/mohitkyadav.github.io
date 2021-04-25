@@ -1,4 +1,4 @@
-@import '../../sass/abstracts.scss';
+@import "../../sass/abstracts.scss";
 
 .btn {
   @include rowFlexCenter;
@@ -8,7 +8,7 @@
   width: auto;
   position: relative;
   background-color: transparent;
-  color: $color-white;
+  color: $font-color;
   border: none;
   transition: all 0.3s ease-out;
   cursor: pointer;
@@ -21,27 +21,30 @@
 
     &__text {
       font-size: $font-size-med-2;
+      font-weight: 500;
     }
   }
 
   &::after {
-    content: '';
+    content: "";
     height: 0.5rem;
     width: 40%;
     position: absolute;
     bottom: 0;
-    background: $color-white;
+    background: $font-color;
     opacity: 0.3;
     transition: all 0.3s ease-out;
     border-radius: 2rem;
   }
 
-  &:hover::after, &:focus::after {
+  &:hover::after,
+  &:focus::after {
     width: 100%;
     opacity: 0.5;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: none;
     filter: brightness(85%);
   }

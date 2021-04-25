@@ -1,4 +1,4 @@
-@import '../../sass/abstracts.scss';
+@import "../../sass/abstracts.scss";
 
 .hero {
   @include rowFlex;
@@ -8,9 +8,9 @@
   font-size: $font-size-xl;
   width: 100vw;
   height: 100vh;
-  color: $color-white;
+  color: $font-color;
+  background: $bg-color;
   overflow: hidden;
-  background: linear-gradient(to right, rgba(20, 250, 230, 0.3) 0%, rgba(230, 84%, 63%, 0) 100%);
 
   &__bg {
     @include colFlexCenter;
@@ -22,7 +22,7 @@
       height: auto;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 20px 0 $color-black-op-80;
+      box-shadow: 0 0 5px 0 $color-black-op-80;
     }
   }
 
