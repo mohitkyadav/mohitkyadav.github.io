@@ -6,8 +6,22 @@
   height: 3rem;
   border-radius: 50%;
   background-color: $color-primary;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   pointer-events: none;
+
+  $border-gap: -0.8rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: $border-gap;
+    left: $border-gap;
+    right: $border-gap;
+    bottom: $border-gap;
+    border-radius: 50%;
+    border: $color-primary-op-50 0.2rem solid;
+    transition: all 0.1s ease-out;
+  }
 }
