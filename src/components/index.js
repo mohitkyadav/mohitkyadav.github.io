@@ -1,9 +1,9 @@
 import Root from './Root'
 import Button from './Button'
-import CustomCurser from './CustomCurser'
+import CustomCursor from './CustomCursor'
 
 export {
   Root,
   Button,
-  CustomCurser,
+  CustomCursor,
 }
