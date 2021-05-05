@@ -9,13 +9,17 @@ const CustomCurser = (props) => {
 
   useEffect(() => {
     document.addEventListener('mousemove', onMouseOver)
+    document.addEventListener('mouseleave', onMouseLeave)
 
     return () => {
       document.removeEventListener('mousemove', onMouseOver)
+      document.removeEventListener('mouseleave', onMouseLeave)
     }
   })
 
   const onMouseOver = (e) => setPos({ x: e.clientX, y: e.clientY })
+
+  const onMouseLeave = () => setPos({ x: -100, y: -100 })
 
   return (
     <div
