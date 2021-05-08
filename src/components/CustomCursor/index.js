@@ -2,11 +2,19 @@ import React, { useEffect, useState } from 'react'
 
 import './index.scss'
 
-const CustomCursor = (props) => {
+const CustomCursor = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 })
   // eslint-disable-next-line
   const [size, setSize] = useState({ width: 30, height: 30 })
   const [isMouseDown, setIsMouseDown] = useState(false)
+
+  const onMouseOver = (e) => setPos({ x: e.clientX, y: e.clientY })
+
+  const onMouseDown = () => setIsMouseDown(true)
+
+  const onMouseUp = () => setIsMouseDown(false)
+
+  const onMouseLeave = () => setPos({ x: -100, y: -100 })
 
   useEffect(() => {
     document.addEventListener('mousemove', onMouseOver)
@@ -21,14 +29,6 @@ const CustomCursor = (props) => {
       document.removeEventListener('mouseup', onMouseUp)
     }
   })
-
-  const onMouseOver = (e) => setPos({ x: e.clientX, y: e.clientY })
-
-  const onMouseDown = () => setIsMouseDown(true)
-
-  const onMouseUp = () => setIsMouseDown(false)
-
-  const onMouseLeave = () => setPos({ x: -100, y: -100 })
 
   return (
     <div
