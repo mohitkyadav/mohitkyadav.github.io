@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import './index.scss'
 
 const TopNav = () => (
@@ -9,6 +11,14 @@ const TopNav = () => (
       src="/static/img/logo.svg"
       alt="logo"
     />
+
+    <button
+      type="button"
+      className="top-nav__button"
+    >
+      <FontAwesomeIcon icon={['fas', 'mitten']} />
+      <p className="top-nav__button__tooltip">say hi.</p>
+    </button>
   </div>
 )
 
