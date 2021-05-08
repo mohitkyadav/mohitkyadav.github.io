@@ -1,0 +1,61 @@
+@import "../../sass/abstracts.scss";
+
+.top-nav {
+  width: 100vw;
+  height: 10rem;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    border: solid 0.2rem transparent;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: relative;
+    color: $font-color;
+    font-size: 2rem;
+
+    &:focus {
+      border: solid 0.2rem $color-primary;
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-primary-op-50;
+    }
+
+    &:hover &__tooltip,
+    &:focus &__tooltip {
+      opacity: 1;
+      bottom: -3rem;
+    }
+
+    &:hover svg,
+    &:focus svg {
+      animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+      animation-duration: 2.5s; /* Change to speed up or slow down */
+      animation-iteration-count: infinite; /* Never stop waving :) */
+      transform-origin: 40% 80%; /* Pivot around the bottom-left palm */
+      display: inline-block;
+    }
+
+    &__tooltip {
+      position: absolute;
+      transition: all 0.3s ease-out;
+      opacity: 0;
+      bottom: -2rem;
+      right: -1rem;
+      font-size: 1.6rem;
+      color: $font-color;
+      width: 5rem;
+    }
+  }
+}

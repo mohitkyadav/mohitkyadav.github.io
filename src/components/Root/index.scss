@@ -1,11 +1,7 @@
 @import "../../sass/abstracts.scss";
 
 .root {
-  @include rowFlex;
-  @include smoothBorderCorner;
-
   position: relative;
-  font-size: 3.2rem;
   width: 100vw;
   height: 100vh;
   color: $font-color;

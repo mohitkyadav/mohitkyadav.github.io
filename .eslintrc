@@ -1,23 +1,23 @@
-module.exports = {
-  env: {
-    browser: true,
-    es6: true
+{
+  "env": {
+    "browser": true,
+    "es6": true
   },
-  extends: ["airbnb"],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+  "extends": ["airbnb"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
   },
-  parser: "babel-eslint",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    ecmaVersion: 2018,
-    sourceType: "module"
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
-  plugins: ["react",],
-  rules: {
+  "plugins": ["react", "prettier"],
+  "rules": {
     "eol-last": [2, "always"],
     "react/destructuring-assignment": [0],
     "react/jsx-equals-spacing": [2, "never"],
@@ -50,4 +50,4 @@ module.exports = {
     //   }
     // }]
   }
-};
+}
