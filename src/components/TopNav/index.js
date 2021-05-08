@@ -4,7 +4,11 @@ import './index.scss'
 
 const TopNav = () => (
   <div className="top-nav">
-    <p className="top-nav__logo">M</p>
+    <img
+      className="top-nav__logo"
+      src="/static/img/logo.svg"
+      alt="logo"
+    />
   </div>
 )
 
