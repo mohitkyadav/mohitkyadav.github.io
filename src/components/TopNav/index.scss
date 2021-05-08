@@ -1,4 +1,12 @@
 @import "../../sass/abstracts.scss";
 
 .top-nav {
+  width: 100vw;
+  height: 10rem;
+  padding: 3rem 2rem;
+
+  &__logo {
+    font-weight: 600;
+    font-size: 3.2rem;
+  }
 }
