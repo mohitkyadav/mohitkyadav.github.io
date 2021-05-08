@@ -32,9 +32,19 @@
       background-color: $color-primary-op-50;
     }
 
-    &:hover :is(&__tooltip) {
+    &:hover &__tooltip,
+    &:focus &__tooltip {
       opacity: 1;
       bottom: -3rem;
+    }
+
+    &:hover svg,
+    &:focus svg {
+      animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+      animation-duration: 2.5s; /* Change to speed up or slow down */
+      animation-iteration-count: infinite; /* Never stop waving :) */
+      transform-origin: 40% 80%; /* Pivot around the bottom-left palm */
+      display: inline-block;
     }
 
     &__tooltip {
