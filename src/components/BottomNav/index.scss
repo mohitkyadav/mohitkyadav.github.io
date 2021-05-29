@@ -13,6 +13,10 @@
   }
 
   &__button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: transparent;
     border: none;
     border: solid 0.2rem transparent;

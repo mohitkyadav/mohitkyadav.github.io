@@ -6,20 +6,26 @@ import './index.scss'
 
 const BottomNav = () => (
   <div className="bottom-nav">
-    <button
+    <a
       type="button"
       className="bottom-nav__button"
+      href="https://github.com/mohitkyadav"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <FontAwesomeIcon icon={['fab', 'github']} />
       <p className="bottom-nav__button__tooltip">github.</p>
-    </button>
-    <button
+    </a>
+    <a
       type="button"
       className="bottom-nav__button"
+      href="https://dribbble.com/draemonn"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <FontAwesomeIcon icon={['fas', 'basketball-ball']} />
       <p className="bottom-nav__button__tooltip">design.</p>
-    </button>
+    </a>
   </div>
 )
 
