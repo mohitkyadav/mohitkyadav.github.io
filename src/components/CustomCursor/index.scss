@@ -5,7 +5,7 @@
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background-color: $color-primary;
+  background-color: $color-primary-op-70;
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@
 
   &--down {
     $border-gap: -0.4rem;
-    background-color: $color-primary-op-50;
+    background-color: $color-primary;
 
     &::after {
       top: $border-gap;
