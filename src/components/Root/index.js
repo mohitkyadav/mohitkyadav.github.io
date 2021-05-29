@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import Routes from '../Routes'
+import Routes from '../../Routes'
 import CustomCursor from '../CustomCursor'
 import TopNav from '../TopNav'
 
