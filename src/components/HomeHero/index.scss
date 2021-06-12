@@ -3,5 +3,24 @@
 .home-hero {
   width: 70rem;
   height: 70rem;
+  overflow: hidden;
   border-radius: 50%;
+
+  #bg {
+    // fill: #345d6a;
+  }
+
+  #hill {
+    // fill: #345d6a;
+  }
+
+  #circ-1,
+  #circ-2,
+  #circ-3,
+  #circ-4,
+  #circ-5 {
+    transform-origin: center;
+    -webkit-animation: breathing 6s ease-out infinite normal;
+    animation: breathing 6s ease-out infinite normal;
+  }
 }
