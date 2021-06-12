@@ -1,8 +1,8 @@
 @import "../../sass/abstracts.scss";
 
 .home-hero {
-  width: 70rem;
-  height: 70rem;
+  width: 60rem;
+  height: 60rem;
   overflow: hidden;
   border-radius: 50%;
 
@@ -43,5 +43,12 @@
     transform-origin: center;
     -webkit-animation: breathing 6s ease-out infinite normal;
     animation: breathing 6s ease-out infinite normal;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home-hero {
+    width: 80vw;
+    height: 80vw;
   }
 }
