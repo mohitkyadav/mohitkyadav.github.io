@@ -6,12 +6,33 @@
   overflow: hidden;
   border-radius: 50%;
 
-  #bg {
-    fill: $color-grey-dark;
+  @keyframes blackNWhite {
+    0% {
+      fill: $color-grey-dark;
+    }
+
+    50% {
+      fill: $bg-color;
+    }
+
+    100% {
+      fill: $color-grey-dark;
+    }
   }
 
-  #hill {
-    fill: $color-grey-dark;
+  #bg,
+  #hill,
+  #branch,
+  #branch-2,
+  #branch-3,
+  #branch-4 {
+    animation: blackNWhite 30s ease-in-out infinite;
+  }
+
+  #stars {
+    animation: spin 30s ease-in-out infinite;
+    mix-blend-mode: overlay;
+    transform-origin: bottom center;
   }
 
   #circ-1,
