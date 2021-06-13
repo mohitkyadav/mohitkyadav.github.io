@@ -1,13 +1,20 @@
 @import "../../sass/abstracts.scss";
 
 .about-me {
-  font-size: 2rem;
-  color: $color-grey-dark;
-  max-width: 40rem;
-  font-weight: 500;
-  letter-spacing: 0.08rem;
+  width: 40rem;
+  height: 12rem;
   padding: 3rem;
-  text-align: center;
-  line-height: 1.66667;
-  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    -webkit-font-smoothing: antialiased;
+    font-size: 2rem;
+    color: $color-grey-dark;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    text-align: center;
+    line-height: 1.66667;
+  }
 }
