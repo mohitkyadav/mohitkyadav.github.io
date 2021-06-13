@@ -4,6 +4,7 @@ import CustomCursor from './CustomCursor'
 import TopNav from './TopNav'
 import BottomNav from './BottomNav'
 import HomeHero from './HomeHero'
+import AboutMe from './AboutMe'
 
 export {
   Root,
@@ -11,5 +12,6 @@ export {
   CustomCursor,
   TopNav,
   BottomNav,
+  AboutMe,
   HomeHero,
 }
