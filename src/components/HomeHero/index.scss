@@ -12,7 +12,7 @@
     }
 
     50% {
-      fill: $bg-color;
+      fill: $shadow-color;
     }
 
     100% {
@@ -26,11 +26,23 @@
   #branch-2,
   #branch-3,
   #branch-4 {
-    animation: blackNWhite 30s ease-in-out infinite;
+    animation: blackNWhite 40s ease-in-out infinite;
   }
 
-  #stars {
+  #stars-2 {
     animation: spin 30s ease-in-out infinite;
+    mix-blend-mode: overlay;
+    transform-origin: bottom center;
+  }
+
+  #stars-3 {
+    animation: spin 38s ease-in-out infinite;
+    mix-blend-mode: overlay;
+    transform-origin: bottom center;
+  }
+
+  #stars-4 {
+    animation: spin 46s ease-in-out infinite;
     mix-blend-mode: overlay;
     transform-origin: bottom center;
   }
