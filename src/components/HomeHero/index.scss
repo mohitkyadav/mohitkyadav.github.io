@@ -4,6 +4,7 @@
   width: 60rem;
   height: 60rem;
   overflow: hidden;
+  box-shadow: 0 0 0.8rem $shadow-color;
   border-radius: 50%;
 
   @keyframes blackNWhite {
