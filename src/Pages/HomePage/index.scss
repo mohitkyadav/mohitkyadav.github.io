@@ -10,11 +10,19 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     font-size: 5.2rem;
     letter-spacing: 0.82rem;
     font-weight: 500;
     line-height: 1.7;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .home-page {
+    &__content {
+      justify-content: center;
+    }
   }
 }
