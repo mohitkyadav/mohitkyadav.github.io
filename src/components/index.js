@@ -5,7 +5,6 @@ import TopNav from './TopNav'
 import BottomNav from './BottomNav'
 import HomeHero from './HomeHero'
 import AboutMe from './AboutMe'
-import VerticleNav from './VerticleNav'
 
 export {
   Root,
@@ -15,5 +14,4 @@ export {
   BottomNav,
   AboutMe,
   HomeHero,
-  VerticleNav,
 }

@@ -27,22 +27,26 @@
   #branch-2,
   #branch-3,
   #branch-4 {
+    will-change: fill;
     animation: blackNWhite 40s ease-in-out infinite;
   }
 
   #stars-2 {
+    will-change: transform;
     animation: spin 30s ease-in-out infinite;
     mix-blend-mode: overlay;
     transform-origin: bottom center;
   }
 
   #stars-3 {
+    will-change: transform;
     animation: spin 38s ease-in-out infinite;
     mix-blend-mode: overlay;
     transform-origin: bottom center;
   }
 
   #stars-4 {
+    will-change: transform;
     animation: spin 46s ease-in-out infinite;
     mix-blend-mode: overlay;
     transform-origin: bottom center;
@@ -53,6 +57,7 @@
   #circ-3,
   #circ-4,
   #circ-5 {
+    will-change: transform, opacity;
     transform-origin: center;
     -webkit-animation: breathing 6s ease-out infinite normal;
     animation: breathing 6s ease-out infinite normal;
