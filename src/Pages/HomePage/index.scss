@@ -16,7 +16,6 @@
     letter-spacing: 0.82rem;
     font-weight: 500;
     line-height: 1.7;
-    position: relative;
   }
 }
 
@@ -24,6 +23,19 @@
   .home-page {
     &__content {
       justify-content: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .home-page {
+    .bottom-nav {
+      position: absolute;
+      top: calc(50% - 25vh);
+      right: 0;
+      height: 50vh;
+      flex-direction: column;
+      width: unset;
     }
   }
 }

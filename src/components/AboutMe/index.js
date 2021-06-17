@@ -5,10 +5,10 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './index.scss'
 
 const msgs = [
-  { id: 0, txt: 'I am Mohit Yadav. I love programming and designing.' },
-  { id: 1, txt: 'I like creating illustrations, designs and I like FPS PC games.' },
+  { id: 0, txt: 'I am Mohit Yadav. A software engineer and designer from hobby.' },
+  { id: 1, txt: 'I like creating illustrations, designs and playing FPS games.' },
   { id: 2, txt: 'I am also into Anime and Manga.' },
-  { id: 3, txt: 'My element is Water. Life starts from water.' },
+  { id: 3, txt: 'My element is Water. Life starts from water. 🌊' },
 ]
 
 const AboutMe = () => {
