@@ -10,20 +10,13 @@
     padding: 0 3rem;
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     font-size: 5.2rem;
     letter-spacing: 0.82rem;
     font-weight: 500;
     line-height: 1.7;
-  }
-}
-
-@media only screen and (max-width: 1080px) {
-  .home-page {
-    &__content {
-      justify-content: center;
-    }
   }
 }
 
