@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './index.scss'
 
 const msgs = [
-  { id: 0, txt: 'I am Mohit Yadav. A software engineer and designer from hobby.' },
+  { id: 0, txt: 'I am Mohit Yadav. A full-time software engineer and I love to design.' },
   { id: 1, txt: 'I like creating illustrations, designs and playing FPS games.' },
   { id: 2, txt: 'I am also into Anime and Manga.' },
   { id: 3, txt: 'My element is Water. Life starts from water. 🌊' },
