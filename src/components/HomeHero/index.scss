@@ -6,6 +6,12 @@
   overflow: hidden;
   box-shadow: 0 0 1rem $shadow-color;
   border-radius: 50%;
+  transition: filter 0.2s ease-out;
+  will-change: filter;
+
+  &:hover {
+    animation: hueRotateAnimate 5s infinite;
+  }
 
   @keyframes blackNWhite {
     0% {
@@ -18,6 +24,20 @@
 
     100% {
       fill: $color-grey-dark;
+    }
+  }
+
+  @keyframes hueRotateAnimate {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+
+    50% {
+      filter: hue-rotate(60deg);
+    }
+
+    100% {
+      filter: hue-rotate(0deg);
     }
   }
 
