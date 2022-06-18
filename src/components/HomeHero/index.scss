@@ -9,10 +9,6 @@
   transition: filter 0.2s ease-out;
   will-change: filter;
 
-  &:hover {
-    animation: hueRotateAnimate 5s infinite;
-  }
-
   @keyframes blackNWhite {
     0% {
       fill: $color-grey-dark;
@@ -24,20 +20,6 @@
 
     100% {
       fill: $color-grey-dark;
-    }
-  }
-
-  @keyframes hueRotateAnimate {
-    0% {
-      filter: hue-rotate(0deg);
-    }
-
-    50% {
-      filter: hue-rotate(60deg);
-    }
-
-    100% {
-      filter: hue-rotate(0deg);
     }
   }
 

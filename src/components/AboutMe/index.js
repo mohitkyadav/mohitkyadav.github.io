@@ -6,9 +6,8 @@ import './index.scss'
 
 const msgs = [
   { id: 0, txt: 'I am Mohit Yadav. A full-time software engineer and I love to design.' },
-  { id: 1, txt: 'I like creating illustrations, designs and playing FPS games.' },
-  { id: 2, txt: 'I am also into Anime and Manga.' },
-  { id: 3, txt: 'My element is Water. Life starts from water. 🌊' },
+  { id: 1, txt: 'I like creating illustrations, designs, Anime and FPS games.' },
+  { id: 2, txt: 'My element is Earth. 🌱' },
 ]
 
 const AboutMe = () => {
@@ -32,7 +31,7 @@ const AboutMe = () => {
         <CSSTransition
           key={msgs[currentText].id}
           appear
-          timeout={2000}
+          timeout={1500}
           classNames="slide"
         >
           <p>
