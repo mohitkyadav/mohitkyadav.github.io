@@ -21,4 +21,40 @@ $after-size: 24rem;
     background-color: $color-primary;
     opacity: 1;
   }
+
+  &__header {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+
+  &__projects {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__project-link {
+    font-size: 1.8rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .bottom-nav {
+    padding: 3rem 0 0;
+    max-width: 30rem;
+    height: 7rem;
+  }
+}
+
+
+@media only screen and (max-width: 848px) {
+  .home-right {
+    padding: 3rem;
+  }
 }

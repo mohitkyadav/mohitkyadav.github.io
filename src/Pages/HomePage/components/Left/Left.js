@@ -5,7 +5,7 @@ import HomeHero from '../../../../components/HomeHero'
 import './Left.scss'
 
 export const Left = () => (
-  <div className="home-left">
+  <div className="home-left animation-slide-down">
     <div className="home-left__hero">
       <HomeHero />
     </div>
