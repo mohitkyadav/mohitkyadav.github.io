@@ -3,7 +3,9 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import { HomePage, ResumePage, ErrorPage } from '../Pages'
+import {
+  HomePage, ResumePage, ErrorPage,
+} from '../Pages'
 
 export const routeLinks = [
   { text: 'me', href: '/', component: HomePage },

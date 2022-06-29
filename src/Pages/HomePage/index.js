@@ -8,11 +8,9 @@ import './index.scss'
 
 const HomePage = () => (
   <div className="home-page">
-    <div className="home-page__content">
-      <AboutMe />
-      <HomeHero />
-    </div>
+    <AboutMe />
     <BottomNav />
+    <HomeHero />
   </div>
 )
 
