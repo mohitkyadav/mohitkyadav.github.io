@@ -9,16 +9,18 @@ $after-size: 24rem;
   flex-direction: column;
   padding: 6rem;
   position: relative;
+  overflow: hidden;
 
   &::after {
     content: "";
     position: absolute;
-    top: calc(70% - $after-size / 2);
+    top: calc(46% - $after-size / 2);
     left: calc(100% - $after-size / 2);
     width: $after-size;
     height: $after-size;
     border-radius: 50%;
     background-color: $color-primary;
+    z-index: -1;
     opacity: 1;
   }
 
