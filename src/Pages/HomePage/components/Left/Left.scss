@@ -1,7 +1,7 @@
 @import "../../../../sass/abstracts.scss";
 
 .home-left {
-  background-color: white;
+  background-color: $color-primary;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -13,11 +13,33 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    opacity: 0.9;
+    opacity: 1;
 
     .home-hero {
       width: 30rem;
       height: 30rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: white;
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 0;
+          transform: scale(0);
+        }
+      }
     }
   }
 
@@ -27,6 +49,8 @@
       font-weight: 700;
       color: $color-primary;
       letter-spacing: 1px;
+  color: white;
+
     }
 
     p {
@@ -34,6 +58,8 @@
       font-weight: 400;
       color: $color-primary;
       letter-spacing: 2px;
+  color: white;
+
     }
   }
 
@@ -45,6 +71,7 @@
     opacity: 1;
     line-height: 1;
     margin-top: 1rem;
+  color: white;
   }
 }
 

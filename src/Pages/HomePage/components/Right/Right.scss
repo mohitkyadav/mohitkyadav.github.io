@@ -1,9 +1,24 @@
 @import "../../../../sass/abstracts.scss";
 
+$after-size: 24rem;
+
 .home-right {
-  background-color: $color-primary;
+  background-color: white;
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 6rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(70% - $after-size / 2);
+    left: calc(100% - $after-size / 2);
+    width: $after-size;
+    height: $after-size;
+    border-radius: 50%;
+    background-color: $color-primary;
+    opacity: 1;
+  }
 }
