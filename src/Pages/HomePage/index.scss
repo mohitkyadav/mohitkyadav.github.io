@@ -1,34 +1,14 @@
 @import "../../sass/abstracts.scss";
 
 .home-page {
-  flex: 1;
-  height: calc(100vh - 20rem);
-  position: relative;
-
-  &__content {
-    height: 100%;
-    padding: 0 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 5.2rem;
-    letter-spacing: 0.82rem;
-    font-weight: 500;
-    line-height: 1.7;
-  }
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 848px) {
   .home-page {
-    .bottom-nav {
-      position: absolute;
-      top: calc(50% - 25vh);
-      right: 0;
-      height: 50vh;
-      flex-direction: column;
-      width: unset;
-    }
+    flex-direction: row;
   }
 }

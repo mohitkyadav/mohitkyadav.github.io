@@ -3,7 +3,6 @@
 .about-me {
   width: 40rem;
   height: 12rem;
-  padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,11 +14,10 @@
     color: $color-grey-dark;
     font-weight: 500;
     letter-spacing: 0.08rem;
-    text-align: center;
     line-height: 1.66667;
     position: absolute;
-    left: 4rem;
+    left: 0;
     width: 80%;
-    top: 2rem;
+    top: 1rem;
   }
 }

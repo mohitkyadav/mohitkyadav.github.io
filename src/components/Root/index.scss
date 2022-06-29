@@ -2,19 +2,4 @@
 
 .root {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  color: $font-color;
-  background: $bg-color;
-  overflow: hidden;
-
-  &__content {
-    position: relative;
-
-    &__nav {
-      position: absolute;
-      bottom: 2rem;
-      margin-left: 5rem;
-    }
-  }
 }
