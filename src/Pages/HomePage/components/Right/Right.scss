@@ -1,0 +1,8 @@
+@import "../../../../sass/abstracts.scss";
+
+.home-right {
+  background-color: $color-primary;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
