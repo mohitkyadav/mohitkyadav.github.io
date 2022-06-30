@@ -4,7 +4,6 @@ import TopNav from './TopNav'
 import BottomNav from './BottomNav'
 import HomeHero from './HomeHero'
 import AboutMe from './AboutMe'
-import ProjectCard from './ProjectCard'
 
 export {
   Root,
@@ -13,5 +12,4 @@ export {
   BottomNav,
   AboutMe,
   HomeHero,
-  ProjectCard,
 }

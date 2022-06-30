@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import BottomNav from '../../../../components/BottomNav'
 
@@ -14,7 +15,23 @@ const projects = [
 
 export const Right = () => (
   <div className="home-right animation-slide-up">
-    <div className="home-right__header">Projects</div>
+    <div className="home-right__header">
+      <h4 className="home-right__header__link">
+        Projects
+      </h4>
+      <Link
+        className="home-right__header__link"
+        to="/0"
+      >
+        0
+      </Link>
+      <Link
+        className="home-right__header__link"
+        to="/1"
+      >
+        1
+      </Link>
+    </div>
     <div className="home-right__projects">
       {projects.map((project) => (
         <a

@@ -1,18 +1,75 @@
 @import "../../sass/abstracts.scss";
 
 .error {
-  @include colFlexCenter;
-
   height: 100vh;
   width: 100vw;
   position: absolute;
   background-color: transparent;
   transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35vh;
+
+
+  * {
+    &::-moz-selection {
+      color: white;
+      background: $color-primary;
+    }
+
+    &::selection {
+      color: white;
+      background: $color-primary;
+    }
+  }
 
   &__code {
-    font-size: 20rem;
+    font-size: 16rem;
     font-weight: 800;
-    color: $color-primary-op-50;
+    color: $color-primary-op-70;
     letter-spacing: 0.032rem;
+    animation: bouge 48s ease-in-out infinite;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+
+    span {
+      font-weight: 400;
+      opacity: 0.5;
+    }
+  }
+
+  &__description {
+    font-size: 2rem;
+
+    span {
+      font-size: 4rem;
+    }
+  }
+}
+
+@keyframes bouge {
+  0% {
+    transform: translateY(0px) rotate(0);
+  }
+  12% {
+    transform: translateY(20px) rotate(5deg);
+  }
+  25% {
+    transform: translateY(60px) rotate(8deg);
+  }
+  40% {
+    transform: translateY(50px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(90px) rotate(0deg);
+  }
+  62% {
+    transform: translateY(90px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(50px) rotate(12deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0);
   }
 }

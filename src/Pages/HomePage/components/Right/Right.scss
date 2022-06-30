@@ -28,6 +28,8 @@ $after-size: 24rem;
     font-size: calc(0.6vw + 16px);
     line-height: 1.2;
     letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__projects {
