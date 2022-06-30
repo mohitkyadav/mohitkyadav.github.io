@@ -4,12 +4,11 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import {
-  HomePage, ResumePage, ErrorPage,
+  HomePage, ErrorPage,
 } from '../Pages'
 
 export const routeLinks = [
   { text: 'me', href: '/', component: HomePage },
-  { text: 'resume', href: '/resume', component: ResumePage },
 ]
 
 const Routes = ({ location }) => (

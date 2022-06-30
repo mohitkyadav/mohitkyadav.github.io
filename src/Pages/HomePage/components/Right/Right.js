@@ -5,10 +5,11 @@ import BottomNav from '../../../../components/BottomNav'
 import './Right.scss'
 
 const projects = [
-  { name: 'CSGO Server manager', link: 'https://github.com/mohitkyadav/source-server-manager' },
+  { name: 'Source Server manager', link: 'https://github.com/mohitkyadav/source-server-manager' },
   { name: 'Invoicify', link: 'https://github.com/2AMDevs/invoicify-app' },
-  { name: 'Yubico-JS', link: 'https://github.com/mohitkyadav/yubico-js' },
-  { name: 'React-Pagination-Nav', link: 'https://github.com/mohitkyadav/react-pagination-nav' },
+  { name: 'Yubico JS', link: 'https://github.com/mohitkyadav/yubico-js' },
+  { name: 'React Pagination Nav', link: 'https://github.com/mohitkyadav/react-pagination-nav' },
+  { name: 'Raycast Unogs', link: 'https://github.com/mohitkyadav/raycast-unogs' },
 ]
 
 export const Right = () => (

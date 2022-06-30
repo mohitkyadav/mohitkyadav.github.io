@@ -45,7 +45,7 @@
 
   &__name {
     span {
-      font-size: 3.2rem;
+      font-size: calc(0.7vw + 18px);
       font-weight: 700;
       color: $color-primary;
       letter-spacing: 1px;
@@ -62,7 +62,7 @@
   }
 
   &__description {
-    font-size: 1.6rem;
+    font-size: calc(0.25vw + 12px);
     font-weight: 400;
     color: $color-primary;
     letter-spacing: 1px;
@@ -70,6 +70,18 @@
     line-height: 1;
     margin-top: 1rem;
     color: white;
+  }
+
+  * {
+    &::-moz-selection {
+      color: $color-primary;
+      background: white;
+    }
+
+    &::selection {
+      color: $color-primary;
+      background: white;
+    }
   }
 }
 

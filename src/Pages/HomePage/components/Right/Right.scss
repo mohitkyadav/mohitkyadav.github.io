@@ -25,7 +25,7 @@ $after-size: 24rem;
   }
 
   &__header {
-    font-size: 2.4rem;
+    font-size: calc(0.6vw + 16px);
     line-height: 1.2;
     letter-spacing: 1px;
   }
@@ -37,13 +37,27 @@ $after-size: 24rem;
     justify-content: center;
     align-items: flex-start;
     gap: 1rem;
+    margin: 10rem 0;
   }
 
   &__project-link {
-    font-size: 1.8rem;
+    font-size: calc(0.6vw + 14px);
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+
+  * {
+    &::-moz-selection {
+      color: white;
+      background: $color-primary;
+    }
+
+    &::selection {
+      color: white;
+      background: $color-primary;
     }
   }
 
