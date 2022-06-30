@@ -16,8 +16,7 @@ export const Left = () => (
       <p>— code & a little design</p>
     </div>
     <div className="home-left__description">
-      Software engineer focused on
-      modular design and development.
+      Engineer who loves design.
     </div>
   </div>
 )
