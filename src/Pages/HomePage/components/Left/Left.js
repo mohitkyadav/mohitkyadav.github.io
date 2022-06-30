@@ -7,7 +7,9 @@ import './Left.scss'
 export const Left = () => (
   <div className="home-left animation-slide-down">
     <div className="home-left__hero">
-      <HomeHero />
+      <div className="home-left__hero__wrapper">
+        <HomeHero />
+      </div>
     </div>
     <div className="home-left__name">
       <span>Mohit K. Yadav</span>

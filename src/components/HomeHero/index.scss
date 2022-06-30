@@ -10,11 +10,11 @@
 
   @keyframes blackNWhite {
     0% {
-      fill: $color-grey-dark;
+      fill: $color-black;
     }
 
     50% {
-      fill: $shadow-color;
+      fill: $color-white;
     }
 
     100% {
@@ -29,7 +29,7 @@
   #branch-3,
   #branch-4 {
     will-change: fill;
-    animation: blackNWhite 40s ease-in-out infinite;
+    // animation: blackNWhite 40s ease-in-out infinite;
   }
 
   #stars-2 {

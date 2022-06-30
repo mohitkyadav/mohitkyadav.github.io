@@ -2,11 +2,11 @@
 $font-family: "DM Sans", sans-serif;
 
 // COLORS
-$color-white: hsla(230, 7%, 100%, 1);
-$color-white-op-60: hsla(230, 7%, 100%, 0.6);
-$color-white-op-50: hsla(0, 0%, 100%, 0.5);
-$color-white-op-20: hsla(230, 7%, 100%, 0.2);
-$color-white-op-10: hsla(230, 7%, 100%, 0.1);
+$color-white: white;
+$color-white-op-60: rgba(255, 255, 255, 0.6);
+$color-white-op-50: rgba(255, 255, 255, 0.5);
+$color-white-op-20: rgba(255, 255, 255, 0.2);
+$color-white-op-10: rgba(255, 255, 255, 0.1);
 
 $color-black: hsla(0, 0%, 13%, 1);
 $color-black-op-80: hsla(0, 0%, 13%, 0.8);
