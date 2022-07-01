@@ -35,14 +35,12 @@
           border-radius: 50%;
           background-color: white;
           opacity: 1;
-          transform: scale(1);
-          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out;
         }
 
         &:hover {
           &::before {
             opacity: 0;
-            transform: scale(0);
           }
         }
       }
