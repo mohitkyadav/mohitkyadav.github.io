@@ -18,6 +18,12 @@ html {
 
 body {
   font-size: 1.4rem;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 a {
