@@ -6,6 +6,7 @@ import BottomNav from '../../../../components/BottomNav'
 import './Right.scss'
 
 const projects = [
+  { name: 'Riddles', link: 'https://github.com/mohitkyadav/riddles' },
   { name: 'Source Server manager', link: 'https://github.com/mohitkyadav/source-server-manager' },
   { name: 'Invoicify', link: 'https://github.com/2AMDevs/invoicify-app' },
   { name: 'Yubico JS', link: 'https://github.com/mohitkyadav/yubico-js' },
