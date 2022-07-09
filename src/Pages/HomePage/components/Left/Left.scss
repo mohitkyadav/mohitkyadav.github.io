@@ -2,6 +2,7 @@
 
 .home-left {
   background-color: $color-primary;
+  // background-color: $color-black;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -69,12 +70,20 @@
   &__description {
     font-size: calc(0.25vw + 12px);
     font-weight: 400;
-    color: $color-primary;
-    letter-spacing: 1px;
-    opacity: 1;
+    opacity: 0.8;
     line-height: 1;
     margin-top: 1rem;
     color: white;
+    user-select: none;
+
+    p {
+      font-size: calc(0.25vw + 12px);
+      font-weight: 400;
+      opacity: 0.5;
+      color: white;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
   }
 
   * {
