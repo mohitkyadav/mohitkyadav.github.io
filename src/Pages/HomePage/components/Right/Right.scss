@@ -19,7 +19,8 @@ $after-size: 24rem;
     width: $after-size;
     height: $after-size;
     border-radius: 50%;
-    background-color: $color-primary;
+    // background-color: $color-primary;
+    background-color: $color-black;
     z-index: -1;
     opacity: 1;
   }
