@@ -7,15 +7,10 @@ const ErrorPage = (props) => (
     className={`error ${props.className ? props.className : ''}`}
   >
     <div className="error__code">
-      404
-      {' '}
-      <span>or</span>
-      {' '}
-      WIP://
+      (☞ﾟヮﾟ)☞ 444
     </div>
     <div className="error__description">
-      Cause I love to push to main
-      <span>.</span>
+      ...
     </div>
   </div>
 )
