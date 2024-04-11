@@ -50,9 +50,11 @@
   }
 
   &__name {
+    margin-bottom: 1rem;
+  
     span {
       font-size: calc(0.7vw + 18px);
-      font-weight: 700;
+      font-weight: 600;
       color: $color-primary;
       letter-spacing: 1px;
       color: white;
