@@ -1,4 +1,5 @@
-# Plain static site: no install, no build. Netlify serves the repo root as-is.
+# Plain static site: the "build" just copies the site files into build/ and Netlify publishes that.
+# Publishing build/ (rather than the repo root) also matches the publish directory set in the Netlify UI.
 [build]
-  publish = "."
-  command = "echo 'No build step'"
+  publish = "build"
+  command = "mkdir -p build && find . -mindepth 1 -maxdepth 1 ! -name '.*' ! -name build ! -name netlify.toml ! -name README.md -exec cp -R {} build/ \;"

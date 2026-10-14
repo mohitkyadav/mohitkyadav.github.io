@@ -57,18 +57,6 @@ a {
   }
 }
 
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(5%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes pageIn {
   0% {
     opacity: 0;
@@ -89,10 +77,6 @@ a {
   animation: slideDown 0.8s forwards;
 }
 
-.animation-slide-up {
-  animation: slideUp 0.8s forwards;
-}
-
 /* Home page */
 
 .home-page {
@@ -101,7 +85,7 @@ a {
 }
 
 @media only screen and (min-width: 968px) {
-  /* The page fits the viewport and the right pane scrolls on its own,
+  /* The page fits the viewport and the panes scroll on their own,
      so the entry animations can't push the page into scrolling */
   html:has(.home-page) {
     overflow: hidden;
@@ -117,15 +101,10 @@ a {
 
 .home-left {
   background-color: var(--color-black);
-  flex: 1;
+  flex: 0 0 clamp(36rem, 28vw, 46rem);
   display: flex;
   flex-direction: column;
-  padding: 6rem;
-  justify-content: flex-end;
-}
-
-.home-left__name {
-  margin-bottom: 1rem;
+  padding: 6rem 4rem;
 }
 
 .home-left__name span {
@@ -140,10 +119,11 @@ a {
   justify-content: center;
   align-items: center;
   flex: 1;
+  padding: 4rem 0;
 }
 
 .home-hero {
-  width: min(30rem, 100%);
+  width: min(28rem, 100%);
   aspect-ratio: 1;
   position: relative;
   overflow: hidden;
@@ -170,156 +150,217 @@ a {
   opacity: 0;
 }
 
+.home-left__github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 0.2rem transparent;
+}
+
+.home-left__github svg {
+  height: 2rem;
+  fill: white;
+}
+
+.home-left__github:hover {
+  background-color: var(--color-primary-op-50);
+}
+
+.home-left__github:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
 .home-left *::selection {
   color: var(--color-primary);
   background: white;
 }
 
-/* Right */
+/* Panes: a horizontal strip sized so the third pane is always cut off at the edge */
 
-.home-right {
-  --after-size: 24rem;
+/* Windows 8 start screen entrance. The strip's vanishing point sits on its left edge, against
+   the dark pane, so a pane pushed far back looks like it is tucked behind the dark pane.
+   Each pane flies out from there, shoots past its spot to the right, then glides back left. */
+@keyframes paneIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, -2400px);
+    animation-timing-function: cubic-bezier(0.3, 0.5, 0.4, 1);
+  }
 
-  background-color: white;
+  12% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate3d(40rem, 0, 0);
+    animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.panes {
+  --gap: 6rem;
+
   flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: var(--gap);
+  padding: 6rem var(--gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  container-type: inline-size;
+  perspective: 1000px;
+  perspective-origin: 0 50%;
+}
+
+.panes::-webkit-scrollbar {
+  display: none;
+}
+
+.pane {
+  /* Two full panes, two gaps, then 30% of the third one peeking in */
+  flex: 0 0 max(30rem, calc((100cqw - 2 * var(--gap)) / 2.3));
   display: flex;
   flex-direction: column;
-  padding: 6rem;
-  position: relative;
-  isolation: isolate;
-  overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
+  /* Solid and stacked so each pane slides out from behind the one before it */
+  position: relative;
+  z-index: calc(10 - var(--i));
+  background-color: white;
+  animation: paneIn 1.6s backwards;
+  animation-delay: calc(0.1s + var(--i) * 0.15s);
 }
 
-.home-right::after {
-  content: "";
-  position: absolute;
-  top: calc(46% - var(--after-size) / 2);
-  left: calc(100% - var(--after-size) / 2);
-  width: var(--after-size);
-  height: var(--after-size);
-  border-radius: 50%;
-  background-color: var(--color-black);
-  z-index: -1;
+.pane::-webkit-scrollbar {
+  display: none;
 }
 
-.home-right__header {
-  font-size: calc(0.6vw + 16px);
-  line-height: 1.2;
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: space-between;
+.pane__title {
+  font-size: clamp(4.4rem, 3.8vw, 6.4rem);
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.1rem;
+  margin-bottom: 4rem;
 }
 
-.home-right__header__link {
-  font-size: inherit;
-}
-
-.home-right__projects {
+.pane__items {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-  margin: 6rem 0;
+  gap: 2.4rem;
 }
 
-.home-right__subheader {
-  font-size: calc(0.3vw + 12px);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  opacity: 0.5;
-  margin-top: 2rem;
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
 
-.home-right__project-link {
-  font-size: calc(0.6vw + 14px);
+.item__icon {
+  flex-shrink: 0;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 22%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.3s ease-out;
 }
 
-.home-right__project-link:hover {
-  text-decoration: underline;
+.item:hover .item__icon,
+.item:focus-visible .item__icon {
+  filter: none;
 }
 
-.home-right__app-link {
+.item__text {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  min-width: 0;
 }
 
-.home-right__app-link__description {
-  font-size: calc(0.25vw + 12px);
+.item__name {
+  font-size: calc(0.6vw + 14px);
+}
+
+.item__description {
+  font-size: calc(0.1vw + 11px);
   opacity: 0.6;
 }
 
-.home-right__app-link:hover .home-right__project-link {
+.item:hover .item__name {
   text-decoration: underline;
 }
 
-.home-right *::selection,
+.item:focus-visible {
+  outline: solid 0.2rem var(--color-primary);
+  outline-offset: 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.pane__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  font-size: calc(0.3vw + 14px);
+  line-height: 1.5;
+}
+
+.pane__link:hover {
+  text-decoration: underline;
+}
+
+.panes *::selection,
 .error *::selection {
   color: white;
   background: var(--color-primary);
 }
 
-@media only screen and (max-width: 848px) {
-  .home-left,
-  .home-right {
-    padding: 3rem;
+@media (prefers-reduced-motion: reduce) {
+  .pane {
+    animation: fadeIn 0.4s backwards;
   }
 }
 
-/* Bottom nav */
-
-.bottom-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 3rem 0 0;
-  max-width: 30rem;
-  height: 7rem;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
 }
 
-.bottom-nav__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: solid 0.2rem transparent;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  position: relative;
-}
+/* Narrow screens: the dark pane becomes a header, the panes still scroll sideways */
 
-.bottom-nav__button svg {
-  height: 2rem;
-  fill: var(--font-color);
-}
+@media only screen and (max-width: 967px) {
+  .home-left {
+    padding: 3rem;
+  }
 
-.bottom-nav__button:focus-visible {
-  border-color: var(--color-primary);
-  outline: none;
-}
+  .home-hero {
+    width: min(20rem, 100%);
+  }
 
-.bottom-nav__button:hover {
-  background-color: var(--color-primary-op-50);
-}
+  .panes {
+    --gap: 3rem;
 
-.bottom-nav__button__tooltip {
-  position: absolute;
-  transition: all 0.3s ease-out;
-  opacity: 0;
-  top: -2rem;
-  right: -0.5rem;
-  font-size: 1.6rem;
-  width: 5rem;
-  pointer-events: none;
-}
+    padding: 4rem var(--gap);
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gap);
+  }
 
-.bottom-nav__button:hover .bottom-nav__button__tooltip,
-.bottom-nav__button:focus-visible .bottom-nav__button__tooltip {
-  opacity: 1;
-  top: -3rem;
+  .pane {
+    flex-basis: calc(100cqw - 4rem);
+    overflow-y: visible;
+    scroll-snap-align: start;
+  }
 }
 
 /* Error page */
