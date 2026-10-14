@@ -1,0 +1,4 @@
+# Plain static site: no install, no build. Netlify serves the repo root as-is.
+[build]
+  publish = "."
+  command = "echo 'No build step'"

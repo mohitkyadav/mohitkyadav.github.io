@@ -1,0 +1,373 @@
+:root {
+  --color-white: white;
+  --color-black: hsla(0, 0%, 13%, 1);
+  --color-primary: hsla(189, 71%, 40%, 1);
+  --color-primary-op-50: hsla(189, 71%, 40%, 0.5);
+  --color-primary-op-70: hsla(189, 71%, 40%, 0.7);
+  --font-color: hsla(194, 34%, 31%, 1);
+}
+
+/* Base */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.028rem;
+  -webkit-font-smoothing: antialiased !important;
+  color: var(--font-color);
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scrollbar-width: none;
+}
+
+/* The page scrollbar belongs to the root element, so hide it there */
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+body {
+  font-size: 1.4rem;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Animations */
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-in {
+  animation: pageIn 0.6s ease-out;
+}
+
+.animation-slide-down {
+  animation: slideDown 0.8s forwards;
+}
+
+.animation-slide-up {
+  animation: slideUp 0.8s forwards;
+}
+
+/* Home page */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 968px) {
+  /* The page fits the viewport and the right pane scrolls on its own,
+     so the entry animations can't push the page into scrolling */
+  html:has(.home-page) {
+    overflow: hidden;
+  }
+
+  .home-page {
+    flex-direction: row;
+    height: 100vh;
+  }
+}
+
+/* Left */
+
+.home-left {
+  background-color: var(--color-black);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  justify-content: flex-end;
+}
+
+.home-left__name {
+  margin-bottom: 1rem;
+}
+
+.home-left__name span {
+  font-size: calc(0.7vw + 18px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.home-left__hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.home-hero {
+  width: min(30rem, 100%);
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.home-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.home-hero:hover::before {
+  opacity: 0;
+}
+
+.home-left *::selection {
+  color: var(--color-primary);
+  background: white;
+}
+
+/* Right */
+
+.home-right {
+  --after-size: 24rem;
+
+  background-color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.home-right::after {
+  content: "";
+  position: absolute;
+  top: calc(46% - var(--after-size) / 2);
+  left: calc(100% - var(--after-size) / 2);
+  width: var(--after-size);
+  height: var(--after-size);
+  border-radius: 50%;
+  background-color: var(--color-black);
+  z-index: -1;
+}
+
+.home-right__header {
+  font-size: calc(0.6vw + 16px);
+  line-height: 1.2;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-right__header__link {
+  font-size: inherit;
+}
+
+.home-right__projects {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 6rem 0;
+}
+
+.home-right__subheader {
+  font-size: calc(0.3vw + 12px);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 2rem;
+}
+
+.home-right__project-link {
+  font-size: calc(0.6vw + 14px);
+}
+
+.home-right__project-link:hover {
+  text-decoration: underline;
+}
+
+.home-right__app-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.home-right__app-link__description {
+  font-size: calc(0.25vw + 12px);
+  opacity: 0.6;
+}
+
+.home-right__app-link:hover .home-right__project-link {
+  text-decoration: underline;
+}
+
+.home-right *::selection,
+.error *::selection {
+  color: white;
+  background: var(--color-primary);
+}
+
+@media only screen and (max-width: 848px) {
+  .home-left,
+  .home-right {
+    padding: 3rem;
+  }
+}
+
+/* Bottom nav */
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0 0;
+  max-width: 30rem;
+  height: 7rem;
+}
+
+.bottom-nav__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: solid 0.2rem transparent;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.bottom-nav__button svg {
+  height: 2rem;
+  fill: var(--font-color);
+}
+
+.bottom-nav__button:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.bottom-nav__button:hover {
+  background-color: var(--color-primary-op-50);
+}
+
+.bottom-nav__button__tooltip {
+  position: absolute;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  top: -2rem;
+  right: -0.5rem;
+  font-size: 1.6rem;
+  width: 5rem;
+  pointer-events: none;
+}
+
+.bottom-nav__button:hover .bottom-nav__button__tooltip,
+.bottom-nav__button:focus-visible .bottom-nav__button__tooltip {
+  opacity: 1;
+  top: -3rem;
+}
+
+/* Error page */
+
+.error {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 35vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.error__code {
+  font-size: 8rem;
+  font-weight: 800;
+  color: var(--color-primary-op-70);
+  letter-spacing: 0.032rem;
+  animation: bouge 48s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+.error__description {
+  font-size: 2rem;
+}
+
+@keyframes bouge {
+  0% {
+    transform: translateY(0px) rotate(0);
+  }
+  12% {
+    transform: translateY(20px) rotate(5deg);
+  }
+  25% {
+    transform: translateY(60px) rotate(8deg);
+  }
+  40% {
+    transform: translateY(50px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(90px) rotate(0deg);
+  }
+  62% {
+    transform: translateY(90px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(50px) rotate(12deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0);
+  }
+}

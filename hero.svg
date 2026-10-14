@@ -14,7 +14,7 @@
       }
 
       .cls-4 {
-        fill: #e5f1fa;
+        fill: #fff;
       }
 
       .cls-5 {
@@ -87,6 +87,58 @@
 
       .cls-21 {
         fill: #22aac2;
+      }
+      #stars-2,
+      #stars-3,
+      #stars-4 {
+        will-change: transform;
+        mix-blend-mode: overlay;
+        transform-origin: bottom center;
+      }
+
+      #stars-2 {
+        animation: spin 30s ease-in-out infinite;
+      }
+
+      #stars-3 {
+        animation: spin 38s ease-in-out infinite;
+      }
+
+      #stars-4 {
+        animation: spin 46s ease-in-out infinite;
+      }
+
+      #circ-1,
+      #circ-2,
+      #circ-3,
+      #circ-4,
+      #circ-5 {
+        will-change: transform, opacity;
+        transform-origin: center;
+        animation: breathing 6s ease-out infinite normal;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes breathing {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.1;
+        }
+
+        25% {
+          transform: scale(1.1);
+          opacity: 0.2;
+        }
+
+        100% {
+          transform: scale(0.9);
+          opacity: 0.1;
+        }
       }
     </style>
     <radialGradient id="radial-gradient" cx="598.94" cy="648.61" r="519.87" gradientUnits="userSpaceOnUse">
