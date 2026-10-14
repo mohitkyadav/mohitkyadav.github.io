@@ -165,6 +165,17 @@
     </main>
 
     <script>
+      // Start the pane entrance once DM Sans has loaded (or after 2.5s at most)
+      document.documentElement.classList.add('fonts-loading')
+      const fontsReady = Promise.all([
+        document.fonts.load('400 16px "DM Sans"'),
+        document.fonts.load('200 16px "DM Sans"'),
+      ])
+      const timeout = new Promise((resolve) => { setTimeout(resolve, 2500) })
+      Promise.race([fontsReady, timeout]).finally(() => {
+        document.documentElement.classList.remove('fonts-loading')
+      })
+
       // Turn vertical mouse-wheel scrolling into horizontal scrolling across the panes,
       // unless the pane under the cursor can still scroll vertically itself
       // (wide layout only; on narrow screens the page itself scrolls vertically)
