@@ -202,10 +202,11 @@ a {
     animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
   }
 
-  40% {
+  /* 25% of 2.4s: the move right still takes 600ms */
+  25% {
     translate: 25rem 0;
-    /* eases off the turnaround, then the long Windows 8 glide to rest */
-    animation-timing-function: cubic-bezier(0.35, 0, 0.1, 1);
+    /* eases off the turnaround, then a slow glide left over 1.8s to rest */
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   100% {
@@ -258,8 +259,9 @@ a {
   overflow-y: hidden;
   scrollbar-width: none;
   container-type: inline-size;
-  /* depth for the panes' tilt */
-  perspective: 1200px;
+  /* Depth for the panes' tilt. Windows 8 used a deep perspective, which keeps 3D
+     motion subtle instead of warping the panes */
+  perspective: 3300px;
 }
 
 .panes::-webkit-scrollbar {
@@ -277,13 +279,14 @@ a {
   position: relative;
   z-index: calc(10 - var(--i));
   background-color: white;
-  --delay: calc(0.6s + var(--i) * 0.25s);
+  /* Columns arrive one after another, 150ms apart, as on the Windows 8 start screen */
+  --delay: calc(0.4s + var(--i) * 0.15s);
 
   animation:
-    paneSlide 1.5s var(--delay) backwards,
-    paneScale 1.2s var(--delay) backwards,
+    paneSlide 2s var(--delay) backwards,
+    paneScale 1.5s var(--delay) backwards,
     paneTilt 500ms cubic-bezier(0.3, 0, 0.2, 1) var(--delay) backwards,
-    paneFade 0.5s ease-out var(--delay) backwards;
+    paneFade 0.75s ease-out var(--delay) backwards;
 }
 
 /* Hold the panes in their start pose until the web font has loaded, so the text
