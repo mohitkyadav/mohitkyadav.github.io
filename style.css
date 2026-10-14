@@ -181,29 +181,56 @@ a {
 
 /* Panes: a horizontal strip sized so the third pane is always cut off at the edge */
 
-/* Windows 8 start screen entrance. The strip's vanishing point sits on its left edge, against
-   the dark pane, so a pane pushed far back looks like it is tucked behind the dark pane.
-   Each pane flies out from there, shoots past its spot to the right, then glides back left. */
-@keyframes paneIn {
+/* Windows 8 start screen entrance. Slide, scale and tilt run as separate animations, each on
+   one smooth curve, so the motion never changes pace abruptly:
+   - slide: in from the left, coast to a stop past its spot on the right, glide back left
+   - scale: stays set back until the turnaround, then grows to full size on the way left
+   - tilt: starts slightly turned and straightens out over the whole move */
+@keyframes paneSlide {
+  0% {
+    translate: -20rem 0;
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+
+  40% {
+    translate: 15rem 0;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes paneScale {
+  0%,
+  40% {
+    scale: 0.8;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes paneTilt {
+  0% {
+    rotate: y 15deg;
+  }
+
+  100% {
+    rotate: y 0deg;
+  }
+}
+
+@keyframes paneFade {
   0% {
     opacity: 0;
-    transform: translate3d(0, 0, -2400px);
-    animation-timing-function: cubic-bezier(0.3, 0.5, 0.4, 1);
-  }
-
-  12% {
-    opacity: 1;
-  }
-
-  45% {
-    opacity: 1;
-    transform: translate3d(40rem, 0, 0);
-    animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
   }
 
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -219,8 +246,8 @@ a {
   overflow-y: hidden;
   scrollbar-width: none;
   container-type: inline-size;
-  perspective: 1000px;
-  perspective-origin: 0 50%;
+  /* depth for the panes' tilt */
+  perspective: 1200px;
 }
 
 .panes::-webkit-scrollbar {
@@ -238,8 +265,13 @@ a {
   position: relative;
   z-index: calc(10 - var(--i));
   background-color: white;
-  animation: paneIn 1.6s backwards;
-  animation-delay: calc(0.1s + var(--i) * 0.15s);
+  --delay: calc(0.1s + var(--i) * 0.15s);
+
+  animation:
+    paneSlide 1.3s var(--delay) backwards,
+    paneScale 1.2s var(--delay) backwards,
+    paneTilt 500ms cubic-bezier(0.3, 0, 0.2, 1) var(--delay) backwards,
+    paneFade 0.5s ease-out var(--delay) backwards;
 }
 
 .pane::-webkit-scrollbar {
