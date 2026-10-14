@@ -184,8 +184,9 @@ a {
 /* Windows 8 start screen entrance. Slide, scale and tilt run as separate animations, each on
    one smooth curve, so the motion never changes pace abruptly:
    - slide: in from the left, coast to a stop past its spot on the right, glide back left
-   - scale: stays set back until the turnaround, then grows to full size on the way left
-   - tilt: starts slightly turned and straightens out over the whole move */
+   - scale: starts growing on the way right, keeps growing through the turnaround and
+     reaches full size partway back, so the move ends with a plain slide left
+   - tilt: starts slightly turned and straightens out early on the way right */
 @keyframes paneSlide {
   0% {
     translate: -20rem 0;
@@ -204,11 +205,12 @@ a {
 
 @keyframes paneScale {
   0%,
-  40% {
+  15% {
     scale: 0.8;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   }
 
+  75%,
   100% {
     scale: 1;
   }
