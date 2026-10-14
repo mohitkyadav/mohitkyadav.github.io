@@ -9,7 +9,8 @@ $after-size: 24rem;
   flex-direction: column;
   padding: 6rem;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   &::after {
     content: "";
@@ -40,7 +41,30 @@ $after-size: 24rem;
     justify-content: center;
     align-items: flex-start;
     gap: 1rem;
-    margin: 10rem 0;
+    margin: 6rem 0;
+  }
+
+  &__subheader {
+    font-size: calc(0.3vw + 12px);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-top: 2rem;
+  }
+
+  &__app-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    &__description {
+      font-size: calc(0.25vw + 12px);
+      opacity: 0.6;
+    }
+
+    &:hover .home-right__project-link {
+      text-decoration: underline;
+    }
   }
 
   &__project-link {

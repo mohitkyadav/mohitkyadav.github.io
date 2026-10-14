@@ -5,9 +5,16 @@ import BottomNav from '../../../../components/BottomNav'
 
 import './Right.scss'
 
+const apps = [
+  { name: 'Flight Globe', link: 'https://fly.only4.dev/', description: 'Your flight log as arcs on a 3D globe' },
+  { name: 'Triplanner', link: 'https://trip.only4.dev/', description: 'Offline-first trip planner, day by day' },
+  { name: 'whybvg', link: 'https://whybvg.only4.dev/', description: 'Live Berlin public-transport departure board' },
+  { name: 'Panauti', link: 'https://panauti.only4.dev/', description: 'Find out if you are the jinx for your team' },
+  { name: 'Entumany', link: 'https://ent.only4.dev/', description: 'Self-managed language learning PWA' },
+  { name: 'Riddles', link: 'https://riddles.only4.dev/', description: 'Visualize riddles like Monty Hall and 100 Prisoners' },
+]
+
 const projects = [
-  { name: 'Riddles', link: 'https://github.com/mohitkyadav/riddles' },
-  { name: 'Entumany', link: 'https://github.com/mohitkyadav/entumany' },
   { name: 'Source Server manager', link: 'https://github.com/mohitkyadav/source-server-manager' },
   { name: 'Invoicify', link: 'https://github.com/2AMDevs/invoicify-app' },
   { name: 'Yubico JS', link: 'https://github.com/mohitkyadav/yubico-js' },
@@ -35,6 +42,19 @@ export const Right = () => (
       </Link>
     </div>
     <div className="home-right__projects">
+      {apps.map((app) => (
+        <a
+          key={app.name}
+          href={app.link}
+          className="home-right__app-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="home-right__project-link">{app.name}</span>
+          <span className="home-right__app-link__description">{app.description}</span>
+        </a>
+      ))}
+      <h4 className="home-right__subheader">On GitHub</h4>
       {projects.map((project) => (
         <a
           key={project.name}
