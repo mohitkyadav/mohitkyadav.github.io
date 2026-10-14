@@ -194,7 +194,7 @@ a {
   }
 
   40% {
-    translate: 15rem 0;
+    translate: 25rem 0;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -218,7 +218,7 @@ a {
 
 @keyframes paneTilt {
   0% {
-    rotate: y 15deg;
+    rotate: y 20deg;
   }
 
   100% {
@@ -267,10 +267,10 @@ a {
   position: relative;
   z-index: calc(10 - var(--i));
   background-color: white;
-  --delay: calc(0.1s + var(--i) * 0.15s);
+  --delay: calc(0.6s + var(--i) * 0.25s);
 
   animation:
-    paneSlide 1.3s var(--delay) backwards,
+    paneSlide 1.5s var(--delay) backwards,
     paneScale 1.2s var(--delay) backwards,
     paneTilt 500ms cubic-bezier(0.3, 0, 0.2, 1) var(--delay) backwards,
     paneFade 0.5s ease-out var(--delay) backwards;
