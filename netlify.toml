@@ -1,5 +1,6 @@
 # Plain static site: the "build" just copies the site files into build/ and Netlify publishes that.
 # Publishing build/ (rather than the repo root) also matches the publish directory set in the Netlify UI.
+# The command is a TOML literal string ('''...'''), so its backslash and quotes reach the shell as written.
 [build]
   publish = "build"
-  command = "mkdir -p build && find . -mindepth 1 -maxdepth 1 ! -name '.*' ! -name build ! -name netlify.toml ! -name README.md -exec cp -R {} build/ \;"
+  command = '''mkdir -p build && find . -mindepth 1 -maxdepth 1 ! -name '.*' ! -name build ! -name netlify.toml ! -name README.md -exec cp -R {} build/ \;'''
