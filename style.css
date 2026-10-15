@@ -1,4 +1,9 @@
 :root {
+  /* Width of the open sidebar; the panes are sized from it so they keep their width
+     when the sidebar collapses into a stripe */
+  --left-open: clamp(36rem, 28vw, 46rem);
+  --left-stripe: 7.2rem;
+  --ease-out: cubic-bezier(0.1, 0.9, 0.2, 1);
   --color-white: white;
   --color-black: hsla(0, 0%, 13%, 1);
   --color-primary: hsla(189, 71%, 40%, 1);
@@ -101,10 +106,15 @@ a {
 
 .home-left {
   background-color: var(--color-black);
-  flex: 0 0 clamp(36rem, 28vw, 46rem);
+  flex: 0 0 var(--left-open);
   display: flex;
   flex-direction: column;
   padding: 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    flex-basis 0.6s var(--ease-out),
+    padding 0.6s var(--ease-out);
 }
 
 .home-left__name span {
@@ -112,6 +122,28 @@ a {
   font-weight: 600;
   letter-spacing: 1px;
   color: white;
+  white-space: nowrap;
+}
+
+.home-left__name {
+  transition: opacity 0.2s ease-out;
+}
+
+/* The name as it reads in the collapsed stripe: vertical, bottom to top */
+.home-left__stripe-name {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
 }
 
 .home-left__hero {
@@ -128,6 +160,7 @@ a {
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  transition: width 0.6s var(--ease-out);
 }
 
 .home-hero img {
@@ -254,7 +287,9 @@ a {
   min-width: 0;
   display: flex;
   gap: var(--gap);
-  padding: 6rem var(--gap);
+  /* No bottom padding: the panes run to the bottom of the window and carry that space
+     inside, so their lists scroll fully into view instead of being cut off above it */
+  padding: 6rem var(--gap) 0;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -269,10 +304,12 @@ a {
 }
 
 .pane {
-  /* Two full panes, two gaps, then 30% of the third one peeking in */
-  flex: 0 0 max(30rem, calc((100cqw - 2 * var(--gap)) / 2.3));
+  /* Two full panes, two gaps, then 30% of the third one peeking in. Sized from the open
+     sidebar's width (not the strip's), so collapsing the sidebar doesn't reflow them */
+  flex: 0 0 max(30rem, calc((100vw - var(--left-open) - 4 * var(--gap)) / 2.3));
   display: flex;
   flex-direction: column;
+  padding-bottom: 6rem;
   overflow-y: auto;
   scrollbar-width: none;
   /* Solid and stacked so each pane slides out from behind the one before it */
@@ -378,6 +415,50 @@ a {
   background: var(--color-primary);
 }
 
+/* Wide screens: once you scroll, the sidebar collapses into a stripe */
+
+@media only screen and (min-width: 968px) {
+  .is-collapsed .home-left {
+    flex-basis: var(--left-stripe);
+    padding: 6rem 1.6rem;
+    cursor: pointer;
+  }
+
+  .is-collapsed .home-left__name {
+    opacity: 0;
+  }
+
+  .is-collapsed .home-left__stripe-name {
+    opacity: 1;
+    transition-delay: 0.25s;
+  }
+
+  .is-collapsed .home-hero {
+    width: 4rem;
+  }
+}
+
+/* Focus: the focused pane is full size, the others sit back slightly smaller and muted.
+   Hovering an item in another pane moves the focus there (see index.html). Mouse only. */
+
+@media (hover: hover) {
+  .pane {
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .pane > * {
+    transition: opacity 0.6s var(--ease-out);
+  }
+
+  .pane:not(.is-focused) {
+    transform: scale(0.94);
+  }
+
+  .pane:not(.is-focused) > * {
+    opacity: 0.45;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pane {
     animation: fadeIn 0.4s backwards;
@@ -411,6 +492,7 @@ a {
 
   .pane {
     flex-basis: calc(100cqw - 4rem);
+    padding-bottom: 0;
     overflow-y: visible;
     scroll-snap-align: start;
   }
