@@ -31,6 +31,8 @@
 html {
   font-size: 62.5%; /* 1rem = 10px */
   scrollbar-width: none;
+  /* stop iOS from enlarging text in landscape */
+  -webkit-text-size-adjust: 100%;
 }
 
 /* The page scrollbar belongs to the root element, so hide it there */
@@ -84,21 +86,23 @@ a {
 
 /* Home page */
 
+/* The page fits the screen and the panes scroll on their own, so the entry animations
+   can't push the page into scrolling (dvh follows the phone's browser bars) */
+html:has(.home-page) {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
 }
 
 @media only screen and (min-width: 968px) {
-  /* The page fits the viewport and the panes scroll on their own,
-     so the entry animations can't push the page into scrolling */
-  html:has(.home-page) {
-    overflow: hidden;
-  }
-
   .home-page {
     flex-direction: row;
-    height: 100vh;
   }
 }
 
@@ -231,13 +235,13 @@ a {
    - tilt: starts slightly turned and straightens out early on the way right */
 @keyframes paneSlide {
   0% {
-    translate: -20rem 0;
+    translate: var(--slide-from) 0;
     animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1);
   }
 
   /* 25% of 2.4s: the move right still takes 600ms */
   25% {
-    translate: 25rem 0;
+    translate: var(--slide-apex) 0;
     /* eases off the turnaround, then a slow glide left over 1.8s to rest */
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -316,6 +320,9 @@ a {
   position: relative;
   z-index: calc(10 - var(--i));
   background-color: white;
+  /* How far the entrance swings: in from the left, past its spot to the right */
+  --slide-from: -20rem;
+  --slide-apex: 25rem;
   /* Columns arrive one after another, 150ms apart, as on the Windows 8 start screen */
   --delay: calc(0.4s + var(--i) * 0.15s);
 
@@ -471,30 +478,121 @@ a {
   }
 }
 
-/* Narrow screens: the dark pane becomes a header, the panes still scroll sideways */
+/* Phones and narrow screens: a slim dark bar on top, and the panes as a full-height
+   panorama (like Windows Phone) you swipe through, the next pane's title peeking in */
 
 @media only screen and (max-width: 967px) {
   .home-left {
-    padding: 3rem;
+    flex: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.6rem 2.4rem;
+    padding-top: max(1.6rem, env(safe-area-inset-top));
+    padding-left: max(2.4rem, env(safe-area-inset-left));
+    padding-right: max(2.4rem, env(safe-area-inset-right));
   }
 
+  .home-left__hero {
+    order: -1;
+    flex: none;
+    padding: 0;
+  }
+
+  /* cursor: pointer lets iOS show the hover reveal on tap */
   .home-hero {
-    width: min(20rem, 100%);
+    width: 4.4rem;
+    cursor: pointer;
+  }
+
+  .home-left__name span {
+    font-size: 1.8rem;
+  }
+
+  .home-left__github {
+    margin-left: auto;
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .home-left__stripe-name {
+    display: none;
   }
 
   .panes {
-    --gap: 3rem;
+    --gap: 2.4rem;
 
-    padding: 4rem var(--gap);
+    flex: 1;
+    min-height: 0;
+    padding: 3.2rem var(--gap) 0;
+    padding-left: max(var(--gap), env(safe-area-inset-left));
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gap);
+    scroll-padding-inline-start: var(--gap);
+    overscroll-behavior-x: contain;
   }
 
   .pane {
-    flex-basis: calc(100cqw - 4rem);
-    padding-bottom: 0;
-    overflow-y: visible;
+    --slide-from: -6rem;
+    --slide-apex: 8rem;
+
+    /* leaves 4rem for the next pane's title to peek in */
+    flex-basis: calc(100vw - 2 * var(--gap) - 4rem);
+    padding-bottom: max(3.2rem, env(safe-area-inset-bottom));
+    overscroll-behavior-y: contain;
     scroll-snap-align: start;
+  }
+
+  .pane__title {
+    font-size: 4.4rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .pane__items {
+    gap: 2rem;
+  }
+
+  .item__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .item__name {
+    font-size: 1.7rem;
+  }
+
+  .item__description {
+    font-size: 1.3rem;
+  }
+
+  .pane__body {
+    font-size: 1.6rem;
+  }
+}
+
+/* Narrow screens: focus follows the pane you've swiped to (see index.html); the
+   peeking neighbour fades back so it reads as a hint rather than clutter */
+@media only screen and (max-width: 967px) {
+  .pane > * {
+    transition: opacity 0.4s ease-out;
+  }
+
+  .pane:not(.is-focused) > * {
+    opacity: 0.3;
+  }
+}
+
+/* Touch screens have no hover: show an app's colours while it's pressed */
+@media (hover: none) {
+  .item {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .item:active .item__icon {
+    filter: none;
+  }
+
+  .item:active .item__name {
+    text-decoration: underline;
   }
 }
 
@@ -510,7 +608,8 @@ a {
 }
 
 .error__code {
-  font-size: 8rem;
+  font-size: min(8rem, 12vw);
+  white-space: nowrap;
   font-weight: 800;
   color: var(--color-primary-op-70);
   letter-spacing: 0.032rem;

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" href="/fav/favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
@@ -20,7 +20,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#212121" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -222,6 +222,14 @@
       })
 
       panes.addEventListener('focusin', (event) => focusPane(event.target.closest('.pane')))
+
+      // On narrow screens (no side-by-side panes, often no hover), focus follows the pane
+      // that's mostly in view as you swipe
+      const inView = new IntersectionObserver((entries) => {
+        if (wide.matches) return
+        entries.forEach((entry) => { if (entry.isIntersecting) focusPane(entry.target) })
+      }, { root: panes, threshold: 0.6 })
+      panes.querySelectorAll('.pane').forEach((pane) => inView.observe(pane))
     </script>
   </body>
 </html>
