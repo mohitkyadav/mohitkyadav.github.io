@@ -167,7 +167,16 @@
 
     <script>
       // Start the pane entrance once DM Sans has loaded (or after 2.5s at most)
-      document.documentElement.classList.add('fonts-loading')
+      document.documentElement.classList.add('fonts-loading', 'panes-entering')
+
+      // The entrance is over once the last pane has no animations left running; that
+      // turns scrolling, snapping and the normal layers back on (fallback after 8s)
+      const lastPane = [...document.querySelectorAll('.pane')].pop()
+      const doneEntering = () => document.documentElement.classList.remove('panes-entering')
+      lastPane.addEventListener('animationend', (event) => {
+        if (event.target === lastPane && lastPane.getAnimations().length === 0) doneEntering()
+      })
+      setTimeout(doneEntering, 8000)
       const fontsReady = Promise.all([
         document.fonts.load('400 16px "DM Sans"'),
         document.fonts.load('200 16px "DM Sans"'),

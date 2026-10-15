@@ -333,6 +333,12 @@ html:has(.home-page) {
     paneFade 0.75s ease-out var(--delay) backwards;
 }
 
+/* While the panes fly in, keep them on their own GPU layers from the start, so Safari
+   doesn't have to create and repaint them mid-flight. Cleared once they've landed. */
+.panes-entering .pane {
+  will-change: translate, scale, rotate, opacity;
+}
+
 /* Hold the panes in their start pose until the web font has loaded, so the text
    doesn't swap fonts (and jump) mid-flight. The class is set and cleared in index.html. */
 .fonts-loading .pane {
@@ -466,12 +472,6 @@ html:has(.home-page) {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .pane {
-    animation: fadeIn 0.4s backwards;
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -529,17 +529,33 @@ html:has(.home-page) {
     scroll-snap-type: x mandatory;
     scroll-padding-inline-start: var(--gap);
     overscroll-behavior-x: contain;
+    perspective: none;
   }
 
   .pane {
     --slide-from: -6rem;
     --slide-apex: 8rem;
 
+    /* No tilt on small screens: it's barely visible on a narrow pane, and keeping the
+       motion 2D is much easier on Safari (the order matches .pane's animation list) */
+    animation-name: paneSlide, paneScale, none, paneFade;
+
     /* leaves 4rem for the next pane's title to peek in */
     flex-basis: calc(100vw - 2 * var(--gap) - 4rem);
     padding-bottom: max(3.2rem, env(safe-area-inset-bottom));
     overscroll-behavior-y: contain;
     scroll-snap-align: start;
+  }
+
+  /* During the entrance, nothing inside the strip scrolls or snaps: a native scroll area
+     or snap points inside a moving layer make iOS Safari stutter. Both come back on as
+     soon as the panes have landed (see index.html). */
+  .panes-entering .panes {
+    scroll-snap-type: none;
+  }
+
+  .panes-entering .pane {
+    overflow-y: hidden;
   }
 
   .pane__title {
@@ -593,6 +609,13 @@ html:has(.home-page) {
 
   .item:active .item__name {
     text-decoration: underline;
+  }
+}
+
+/* Reduced motion: the panes just fade in. Last, so it wins over the layouts above. */
+@media (prefers-reduced-motion: reduce) {
+  .pane {
+    animation: fadeIn 0.4s backwards;
   }
 }
 
